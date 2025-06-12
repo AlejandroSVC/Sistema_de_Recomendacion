@@ -2,6 +2,8 @@
 ## Interactive public dashboard for a Movie Recommendation System with gradio interface.
 ## Python code
 
+![Banner](docs/assets/images/movie_banner.png)
+
 ### Movie Recommendation System
 
 The script uses item-item collaborative filtering with centered cosine similarity. 
