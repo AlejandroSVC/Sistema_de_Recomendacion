@@ -75,3 +75,5 @@ interface = gr.Interface(
 
 interface.launch()
 ```
+![Interfaz](docs/assets/images/sistema_de_recomendacion.png)
+
