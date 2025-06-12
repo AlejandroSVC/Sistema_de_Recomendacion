@@ -1,6 +1,5 @@
 # Movie Recommendation System
 ## Interactive public dashboard for a Movie Recommendation System with gradio interface.
-## Python code
 
 ![Banner](docs/assets/images/movie_banner.png)
 
