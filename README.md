@@ -3,8 +3,6 @@
 
 ![Banner](docs/assets/images/movie_banner.png)
 
-### Sistema de Recomendación de Películas
-
 El script utiliza filtrado colaborativo elemento a elemento con similitud de coseno centrada.
 Procesa los datos de calificación para tener en cuenta los sesgos de calificación de los usuarios. Utiliza un cálculo eficiente de similitud con Scikit-learn. Utiliza una interfaz desplegable interactiva con Gradio. Y gestiona datos dispersos mediante el centrado de la media.
 
