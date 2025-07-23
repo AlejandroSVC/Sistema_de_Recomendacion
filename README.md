@@ -1,33 +1,31 @@
-# Movie Recommendation System
-## Interactive public dashboard for a Movie Recommendation System with gradio interface.
+# Sistema de recomendación de películas
+## Panel público interactivo para un sistema de recomendación de películas con interfaz gradio.
 
 ![Banner](docs/assets/images/movie_banner.png)
 
-### Movie Recommendation System
+### Sistema de Recomendación de Películas
 
-The script uses item-item collaborative filtering with centered cosine similarity. 
-It processes ratings data to account for user rating biases. It uses efficient
-similarity computation using scikit-learn. It uses an interactive dropdown interface
-with Gradio. And it handles sparse data through mean-centering.
+El script utiliza filtrado colaborativo elemento a elemento con similitud de coseno centrada.
+Procesa los datos de calificación para tener en cuenta los sesgos de calificación de los usuarios. Utiliza un cálculo eficiente de similitud con Scikit-learn. Utiliza una interfaz desplegable interactiva con Gradio. Y gestiona datos dispersos mediante el centrado de la media.
 
-### Python code:
+### Código Python:
 
-### 1. Import libraries
+### 1. Importar bibliotecas
 ```
 import pandas as pd
 import gradio as gr
 from sklearn.metrics.pairwise import cosine_similarity
 ```
-### 2. Load and preprocess data
+### 2. Cargar y preprocesar los datos
 ```
 movies = pd.read_csv("movies.csv")
 ratings = pd.read_csv("ratings.csv")
 ```
-### 3. Create item-item similarity matrix using collaborative filtering
+### 3. Crear una matriz de similaridad item-item usando filtrado colaborativo
 ```
 merged_data = ratings.merge(movies, on='movieId')
 ```
-### 4. Create user-item matrix with mean-centered ratings
+### 4. Crear una matriz usuario-item con ratings centrados en la media
 ```
 mean_ratings = merged_data.groupby('movieId')['rating'].mean()
 merged_data['centered_rating'] = merged_data.apply(
@@ -40,7 +38,7 @@ user_item_matrix = merged_data.pivot_table(
     fill_value=0
 )
 ```
-### 5. Compute cosine similarity between movies
+### 5. Calcular la similitud del coseno entre películas
 ```
 cosine_sim = cosine_similarity(user_item_matrix)
 cosine_sim_df = pd.DataFrame(
@@ -49,7 +47,7 @@ cosine_sim_df = pd.DataFrame(
     columns=user_item_matrix.index
 )
 ```
-### 6. Recommendation function
+### 6. Función de recomendación
 ```
 def recommend_movies(movie_title):
     try:
@@ -61,7 +59,7 @@ def recommend_movies(movie_title):
     except:
         return "Película que no encontrada en la base de datos"
 ```
-### 7. Create Gradio interface
+### 7. Crear interfaz Gradio
 ```
 interface = gr.Interface(
     fn=recommend_movies,
