@@ -1,4 +1,4 @@
-# Sistema de recomendación
+# Sistema de Recomendación
 ## Panel público interactivo para un sistema de recomendación de películas con interfaz gradio.
 
 ![Banner](docs/assets/images/movie_banner.png)
